@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Robot 24/7 - Minecraft Bot Control Platform</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="app.css">
+</head>
+
+<body>
+<div class="container">
+
+<header id="main-header">
+<h1>Robot 24/7</h1>
+<p id="header-subtitle">Minecraft Bot Control Platform</p>
+</header>
+
+<main>
+
+<!-- Welcome -->
+<div id="welcome-screen" class="screen">
+<div class="hero-section">
+
+<div class="logo-container">
+<div class="robot-logo">
+<div class="robot-head">
+<div class="robot-eye"></div>
+<div class="robot-eye"></div>
+</div>
+</div>
+</div>
+
+<h1 class="hero-title">Robot 24/7</h1>
+
+<p class="hero-description">
+Control and run your Minecraft bots 24/7 with ease.<br>
+Manage multiple servers and automate tasks.
+</p>
+
+<div class="buttons-container">
+<button class="button primary" onclick="showScreen('dashboard-screen')">
+Get Started
+</button>
+<button class="button secondary" onclick="showScreen('dashboard-screen')">
+Go to Dashboard
+</button>
+</div>
+
+</div>
+</div>
+
+<!-- Dashboard -->
+<div id="dashboard-screen" class="screen hidden">
+<div id="dashboard-layout">
+
+<!-- Sidebar -->
+<div class="sidebar">
+<div class="pack-info">
+<h2>Navigation</h2>
+</div>
+
+<div class="sidebar-buttons">
+
+<button class="button secondary" onclick="showDashboardSection('home')">
+Home
+</button>
+
+<button class="button secondary" onclick="showDashboardSection('create-bot')">
+Create Bot
+</button>
+
+<button class="button secondary" onclick="showDashboardSection('servers')">
+Servers
+</button>
+
+<button class="button secondary" onclick="showDashboardSection('settings')">
+Settings
+</button>
+
+<button class="button destructive" onclick="showScreen('welcome-screen')">
+Exit
+</button>
+
+</div>
+</div>
+
+<!-- Content -->
+<div class="content">
+
+<!-- HOME -->
+<div id="home-section" class="dashboard-section">
+<div class="heads-list-header">
+<h2>Dashboard Overview</h2>
+</div>
+
+<div class="dashboard-content">
+
+<div class="stats-grid">
+
+<div class="stat-card">
+<div class="stat-info">
+<h3>Active Bots</h3>
+<p class="stat-value" id="active-bots-count">0</p>
+</div>
+</div>
+
+<div class="stat-card">
+<div class="stat-info">
+<h3>Connected Servers</h3>
+<p class="stat-value" id="server-count">0</p>
+</div>
+</div>
+
+<div class="stat-card">
+<div class="stat-info">
+<h3>Total Uptime</h3>
+<p class="stat-value">24/7</p>
+</div>
+</div>
+
+<div class="stat-card">
+<div class="stat-info">
+<h3>Status</h3>
+<p class="stat-value status-online">Online</p>
+</div>
+</div>
+
+</div>
+
+<div class="recent-activity">
+<h3>Quick Actions</h3>
+<div class="action-buttons">
+<button class="button primary" onclick="showDashboardSection('create-bot')">
+Create New Bot
+</button>
+<button class="button secondary" onclick="showDashboardSection('servers')">
+Manage Servers
+</button>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- Create Bot -->
+<div id="create-bot-section" class="dashboard-section hidden">
+<div class="heads-list-header">
+<h2>Create Permanent Bot</h2>
+</div>
+
+<div class="dashboard-content">
+<div class="form-card">
+
+<form id="create-bot-form" onsubmit="return createBot(event)">
+
+<div class="form-group">
+<label for="bot-name">Bot Name</label>
+<input type="text" id="bot-name" placeholder="Enter bot name" required>
+</div>
+
+<div class="form-group">
+<label for="game-version">Game Version</label>
+<select id="game-version" class="version-select" required>
+<option value="">Select Version</option>
+<option value="1.20.4">Minecraft 1.20.4</option>
+<option value="1.20.3">Minecraft 1.20.3</option>
+<option value="1.20.2">Minecraft 1.20.2</option>
+<option value="1.20.1">Minecraft 1.20.1</option>
+<option value="1.20">Minecraft 1.20</option>
+<option value="1.19.4">Minecraft 1.19.4</option>
+<option value="1.19.3">Minecraft 1.19.3</option>
+<option value="1.19.2">Minecraft 1.19.2</option>
+<option value="1.19.1">Minecraft 1.19.1</option>
+<option value="1.19">Minecraft 1.19</option>
+</select>
+</div>
+
+<div class="form-actions">
+<button type="submit" class="button primary">Create Bot</button>
+<button type="button" class="button secondary" onclick="document.getElementById('create-bot-form').reset()">Clear</button>
+</div>
+
+</form>
+
+</div>
+</div>
+</div>
+
+<!-- Servers -->
+<div id="servers-section" class="dashboard-section hidden">
+<div class="heads-list-header">
+<h2>Server Management</h2>
+</div>
+
+<div class="dashboard-content">
+
+<div class="form-card">
+<h3>Add New Server</h3>
+
+<form id="add-server-form" onsubmit="return addServer(event)">
+
+<div class="form-group">
+<label>Server Title</label>
+<input type="text" id="server-name" placeholder="My Server" required>
+</div>
+
+<div class="form-group">
+<label>Server IP</label>
+<input type="text" id="server-ip" placeholder="play.example.com" required>
+</div>
+
+<div class="form-group">
+<label>Port</label>
+<input type="text" id="server-port" value="25565" required>
+</div>
+
+<div class="form-actions">
+<button type="submit" class="button primary">Add Server</button>
+</div>
+
+</form>
+</div>
+
+<div class="server-list-container">
+<h3>Your Servers</h3>
+<div id="server-list" class="server-list"></div>
+</div>
+
+</div>
+</div>
+
+<!-- Settings -->
+<div id="settings-section" class="dashboard-section hidden">
+<div class="heads-list-header">
+<h2>Settings</h2>
+</div>
+
+<div class="dashboard-content">
+
+<div class="settings-card">
+<h3>Bot Settings</h3>
+
+<div class="setting-item">
+<label>Auto-reconnect</label>
+<input type="checkbox" checked>
+</div>
+
+<div class="setting-item">
+<label>Enable Notifications</label>
+<input type="checkbox" checked>
+</div>
+
+<div class="setting-item">
+<label>Debug Mode</label>
+<input type="checkbox">
+</div>
+
+</div>
+
+<div class="settings-card">
+<h3>Account</h3>
+<button class="button secondary">Manage Account</button>
+<button class="button destructive">Sign Out</button>
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+</main>
+</div>
+
+<div id="toast" class="toast"></div>
+<script src="app.js"></script>
+
+</body>
+</html>
