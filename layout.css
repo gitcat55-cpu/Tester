@@ -1,16 +1,532 @@
-/* Robot 24/7 Custom Styles - Built on Minecraft Bedrock UI */
+/* Layout and Responsive Styles for Robot 24/7 */
+/* This file contains only layout and responsive adjustments */
 
-/* Override body for gradient background */
-body {
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%);
-    background-attachment: fixed;
+/* Hero Section Styling */
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
 }
 
-/* Animations */
+.logo-section {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.logo-title {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #e6e8eb;
+    margin-bottom: 15px;
+    text-shadow: 0 4px 0 #1a1a1b;
+}
+
+.hero-description {
+    font-size: 1.5rem;
+    color: #d0d1d4;
+    margin-bottom: 10px;
+}
+
+/* Feature Cards */
+.hero-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    width: 100%;
+    max-width: 1000px;
+    margin-bottom: 40px;
+}
+
+.feature-card {
+    background-color: #48494a;
+    padding: 25px;
+    text-align: center;
+    box-shadow:
+        0px 6px 0px #4d4d4e,
+        0 0 0 3px #1a1a1b,
+        0 6px 0 3px #1a1a1b;
+    transition: transform 0.2s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-2px);
+    background-color: #3c3c42;
+}
+
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.feature-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: #e6e8eb;
+    font-weight: bold;
+}
+
+.feature-card p {
+    font-size: 1rem;
+    color: #b1b2b5;
+}
+
+/* Bot Setup Container */
+.setup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+    padding: 40px 20px;
+}
+
+.setup-card {
+    background-color: #48494a;
+    padding: 40px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow:
+        0px 6px 0px #4d4d4e,
+        0 0 0 3px #1a1a1b,
+        0 6px 0 3px #1a1a1b;
+}
+
+.setup-title {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #e6e8eb;
+    font-weight: bold;
+    text-align: center;
+}
+
+.setup-subtitle {
+    font-size: 1.1rem;
+    color: #b1b2b5;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Form Styling */
+.bot-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 1.1rem;
+    color: #e6e8eb;
+    font-weight: bold;
+}
+
+.version-select {
+    background-color: #313233;
+    border: 3px solid #1e1e1f;
+    padding: 10px 15px;
+    box-shadow: 0px 6px 0px #1e1e1f inset;
+    color: white;
+    font-family: 'Minecraft', sans-serif;
+    font-size: 20px;
+    width: 100%;
+    cursor: pointer;
+    outline: none;
+}
+
+.version-select:focus {
+    border-color: #3c8527;
+}
+
+.form-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.form-actions .button {
+    flex: 1;
+}
+
+/* Dashboard Layout */
+#dashboard-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.dashboard-view {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.dashboard-view.hidden {
+    display: none;
+}
+
+/* Dashboard Stats */
+.dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.stat-card {
+    background-color: #3c3c42;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow:
+        0px 6px 0px #2d2d32,
+        0 0 0 3px #1a1a1b,
+        0 6px 0 3px #1a1a1b;
+    transition: transform 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    background-color: #48494a;
+}
+
+.stat-icon {
+    font-size: 3rem;
+}
+
+.stat-content h3 {
+    font-size: 1rem;
+    color: #b1b2b5;
+    margin-bottom: 5px;
+}
+
+.stat-value {
+    font-size: 2.5rem;
+    color: #e6e8eb;
+    font-weight: bold;
+}
+
+/* Recent Activity */
+.recent-activity {
+    padding: 20px;
+    flex: 1;
+}
+
+.recent-activity h3 {
+    font-size: 1.5rem;
+    color: #e6e8eb;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.activity-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.activity-item {
+    background-color: #3c3c42;
+    padding: 15px;
+    display: flex;
+    gap: 15px;
+    box-shadow:
+        0px 4px 0px #2d2d32,
+        0 0 0 3px #1a1a1b,
+        0 4px 0 3px #1a1a1b;
+}
+
+.activity-time {
+    color: #b1b2b5;
+    font-size: 0.9rem;
+    min-width: 100px;
+}
+
+.activity-text {
+    color: #e6e8eb;
+    flex: 1;
+}
+
+/* Form Container */
+.form-container {
+    padding: 20px;
+    max-width: 800px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+/* Server Management */
+.server-container {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+}
+
+.server-card {
+    background-color: #3c3c42;
+    padding: 20px;
+    box-shadow:
+        0px 6px 0px #2d2d32,
+        0 0 0 3px #1a1a1b,
+        0 6px 0 3px #1a1a1b;
+    transition: transform 0.2s ease;
+}
+
+.server-card:hover {
+    transform: translateY(-2px);
+    background-color: #48494a;
+}
+
+.server-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.server-info h3 {
+    font-size: 1.3rem;
+    color: #e6e8eb;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.server-info p {
+    font-size: 0.9rem;
+    color: #b1b2b5;
+}
+
+.server-status {
+    padding: 5px 12px;
+    font-size: 0.9rem;
+    border-radius: 0;
+    font-weight: bold;
+}
+
+.server-status.online {
+    background-color: #3c8527;
+    color: white;
+}
+
+.server-status.offline {
+    background-color: #727273;
+    color: white;
+}
+
+.server-details {
+    margin-bottom: 15px;
+}
+
+.server-detail {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #48494a;
+}
+
+.server-detail:last-child {
+    border-bottom: none;
+}
+
+.server-detail label {
+    color: #b1b2b5;
+}
+
+.server-detail span {
+    color: #e6e8eb;
+    font-weight: bold;
+}
+
+.server-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.server-actions .button {
+    flex: 1;
+    font-size: 16px;
+    padding: 8px 15px;
+    min-width: 0;
+}
+
+/* Settings */
+.settings-container {
+    padding: 20px;
+    max-width: 800px;
+}
+
+.settings-section {
+    background-color: #3c3c42;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow:
+        0px 6px 0px #2d2d32,
+        0 0 0 3px #1a1a1b,
+        0 6px 0 3px #1a1a1b;
+}
+
+.settings-section h3 {
+    font-size: 1.5rem;
+    color: #e6e8eb;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #48494a;
+}
+
+.setting-item:last-child {
+    border-bottom: none;
+}
+
+.setting-item label {
+    color: #e6e8eb;
+    font-size: 1.1rem;
+}
+
+.setting-item input[type="checkbox"] {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.setting-item input[type="number"] {
+    background-color: #313233;
+    border: 3px solid #1e1e1f;
+    padding: 8px 12px;
+    color: white;
+    font-family: 'Minecraft', sans-serif;
+    font-size: 18px;
+    width: 100px;
+    text-align: center;
+}
+
+/* Button icons */
+.btn-icon {
+    margin-right: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .hero-features {
+        grid-template-columns: 1fr;
+    }
+    
+    .dashboard-stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-description {
+        font-size: 1.2rem;
+    }
+    
+    .feature-card {
+        padding: 20px;
+    }
+    
+    .setup-card {
+        padding: 25px;
+    }
+    
+    .setup-title {
+        font-size: 1.6rem;
+    }
+    
+    #dashboard-layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+    }
+    
+    .sidebar {
+        border-right: none;
+        border-bottom: 2px solid #555;
+    }
+    
+    .content {
+        border-left: none;
+        border-top: 2px solid #555;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .server-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .server-actions {
+        flex-direction: column;
+    }
+    
+    .stat-value {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-title {
+        font-size: 2rem;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+    }
+    
+    .setup-card {
+        padding: 20px;
+    }
+    
+    .feature-card h3 {
+        font-size: 1.1rem;
+    }
+    
+    .feature-card p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Smooth transitions */
+.screen {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(10px);
     }
     to {
         opacity: 1;
@@ -18,22 +534,16 @@ body {
     }
 }
 
-@keyframes slideInFromLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+.feature-card,
+.stat-card,
+.server-card {
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-@keyframes slideInFromRight {
-    from {
-        opacity: 0;
-        transform: translateX(30px);
-    }
+/* Ensure proper spacing on all elements */
+* {
+    box-sizing: border-box;
+}
     to {
         opacity: 1;
         transform: translateX(0);
